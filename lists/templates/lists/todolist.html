@@ -16,12 +16,12 @@
       <form action="{% url 'lists:add_todo' todolist.id %}" method=post>
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Submit">
+        <input type="submit" value="Create Task">
       </form>
     </div>
     <div class="row">
       <div class="one-half column open-todos">
-        <h6 class="docs-header open-todos">{{ todolist.count_open }} open</h6>
+        <h6 class="docs-header open-todos">Unfinished ({{ todolist.count_open }})</h6>
         <ul>
           {% for todo in todolist.todos.all %}
             {% if not todo.is_finished %}
@@ -31,7 +31,7 @@
         </ul>
       </div>
       <div class="one-half column finished-todos">
-        <h6 class="docs-header finished-todos">{{ todolist.count_finished }} finished</h6>
+        <h6 class="docs-header finished-todos">Finished ({{ todolist.count_finished }})</h6>
         <ul>
           {% for todo in todolist.todos.all %}
             {% if todo.is_finished %}
