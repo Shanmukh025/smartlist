@@ -6,8 +6,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>Smart List</title>
-  <meta name="description" content="Smart todolist app.">
   <meta name="author" content="A.Shanmukh">
+  <meta name="description" content="A Smart To-Do List App.">
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -42,14 +42,18 @@
       <div class="container">
         <ul class="navbar-list">
           <li class="navbar-item">
-  <img src="{% static 'images/favicon.png' %}" class="navbar-logo">
-  <a class="navbar-link" href="{% url 'lists:index' %}">Smartlist</a>
+<img src="{% static 'images/favicon.png' %}" class="navbar-logo">
+  <a class="navbar-link" href="{% url 'lists:index' %}">
+    Smartlist
+  </a>
 </li>
           {% if not user.is_authenticated %}
           <li class="navbar-item">
             <a class="navbar-link" href="{% url 'auth:login' %}">Login/Signup</a> {% else %}
             <li class="navbar-item">
-              <a class="navbar-link" href="#" data-popover="#moreNavPopover">{{ user.username }}▾</a>
+
+              <a class="navbar-link" href="#" data-popover="#moreNavPopover">
+                <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295389_960_720.png" class="navbar-logo" style="border-radius: 30%">{{ user.username }}▾</a>
               <div id="moreNavPopover" class="popover">
                 <ul class="popover-list">
                   <li class="popover-item">
